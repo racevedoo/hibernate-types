@@ -36,9 +36,9 @@
     </developers>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:vladmihalcea/hibernate-types.git</developerConnection>
-        <url>scm:git:git@github.com:vladmihalcea/hibernate-types.git</url>
-        <connection>scm:git:git@github.com:vladmihalcea/hibernate-types.git</connection>
+        <developerConnection>scm:git:git@github.com:racevedoo/hibernate-types.git</developerConnection>
+        <url>scm:git:git@github.com:racevedoo/hibernate-types.git</url>
+        <connection>scm:git:git@github.com:racevedoo/hibernate-types.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -164,6 +164,7 @@
                     <forkMode>always</forkMode>
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
+                <version>2.22.2</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -216,24 +217,24 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven-gpg-plugin.version}</version>
-                        <configuration>
-                            <keyname>mih_vlad@yahoo.com</keyname>
-                            <passphrase>${gpg.passphrase}</passphrase>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-gpg-plugin</artifactId>-->
+<!--                        <version>${maven-gpg-plugin.version}</version>-->
+<!--                        <configuration>-->
+<!--                            <keyname>mih_vlad@yahoo.com</keyname>-->
+<!--                            <passphrase>${gpg.passphrase}</passphrase>-->
+<!--                        </configuration>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>sign-artifacts</id>-->
+<!--                                <phase>verify</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>sign</goal>-->
+<!--                                </goals>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
@@ -251,19 +252,19 @@
     </profiles>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>inloco.internal</id>
+            <url>https://archiva.ubee.in/repository/internal</url>
         </repository>
+        <snapshotRepository>
+            <id>inloco.snapshots</id>
+            <url>https://archiva.ubee.in/repository/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <properties>
         <jdk.version>6</jdk.version>
-        <jdk>${env.JAVA_HOME_6}</jdk>
+        <jdk>${env.JAVA_HOME}</jdk>
         <reuseForks>false</reuseForks>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
